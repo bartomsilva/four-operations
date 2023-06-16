@@ -5,8 +5,8 @@ base experimental, trabalho em grupo ( nodejs), trata-se de um projeto das 4 ope
 
 // vamos trabalhar as 4 operações básicas de matemática coisa simples
 // endpoint tipo post o nome do endpoint é livre um para cada membro
-// adição / subtração / divisão / multiplicação
-// Bart   /   Bruno   / Flávia  / Julia 
+// adição / subtração / divisão / multiplicação / Boas Vindas rsrs
+// Bruno   / Flávia  / Julia    / Regiane       / Bart 
 // bora nessa ordem?  
 
 cada um crie uma branch com seu nome
