@@ -1,7 +1,7 @@
 ## não faz fork ( clona o repositório )
 
 ### Four-Operations
-base experimental, trabalho em grupo ( nodejs), trata-se de um projeto das 4 operações basicas de matemática.
+base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um projeto das 4 operações basicas de matemática.
 
 <p>* vamos trabalhar as 4 operações básicas de matemática coisa simples</p>
 <p>* endpoint tipo POST o nome do endpoint é livre um para cada membro.</p>
