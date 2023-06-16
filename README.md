@@ -6,11 +6,11 @@ base experimental, trabalho em grupo ( nodejs), trata-se de um projeto das 4 ope
 <p>* vamos trabalhar as 4 operações básicas de matemática coisa simples</p>
 <p>* endpoint tipo POST o nome do endpoint é livre um para cada membro.</p>
 
-[ ] adição: Bruno
-[ ] subtração: Flavia
-[ ] divisão: Julia Borges
-[ ] multiplicação: Regiane
-[ ] Boas Vindas: Bart
+- [ ] adição: Bruno
+- [ ] subtração: Flavia
+- [ ] divisão: Julia Borges
+- [ ] multiplicação: Regiane
+- [ ] Boas Vindas: Bart
 
 <p>OBS: receber dos valores e fazer as devidas validações.</p>
 
@@ -25,8 +25,8 @@ e tentar resolver.
 ### add mais colaboradores
 ### criar mais funções: 
   - Área de figuras geométricas:
-  [ ] área do círculo
-  [ ] área do quadrado
-  [ ] área do triangulo
-  [ ] área do retangulo
+  - [ ] área do círculo
+  - [ ] área do quadrado
+  - [ ] área do triangulo
+  - [ ] área do retangulo
 
