@@ -11,7 +11,7 @@ base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um proj
 - [ ] divisão: Julia Borges
 - [ ] multiplicação: Regiane
 - [ ] Boas Vindas: Bart
-- [ ] Área do Cículoo: Jair
+- [ ] Área do Cículo: Jair
 
 <p>OBS: receber dos valores e fazer as devidas validações.</p>
 
