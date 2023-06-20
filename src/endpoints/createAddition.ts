@@ -14,10 +14,9 @@ export const creatAddition = (req: Request, res: Response) => {
     if (secondNumber&&typeof secondNumber !== "number") {
       res.status(400);
       throw new Error("This value is not a number");
-    }    
-    result = firstNumber + secondNumber;
+    }  
 
-    res.status(200).send(result);
+    res.status(200).json(firstNumber + secondNumber);
   } catch (error) {
     if (error instanceof Error) {
       res.send(error.message);

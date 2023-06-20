@@ -1,0 +1,7 @@
+POST http://localhost:3003/addition
+content-type: application/json
+
+{
+    "firstNumber":5,
+    "secondNumber":2
+}
