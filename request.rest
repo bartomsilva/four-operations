@@ -1,0 +1,8 @@
+## Multiplicando valores
+POST http://localhost:3003/multiplication
+content-type: application/json
+
+{
+    "multiplying": 5,
+    "multiplier": 2
+}
