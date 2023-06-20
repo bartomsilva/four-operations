@@ -13,7 +13,14 @@ server.listen(3003,()=>console.log("server on in port ", PORT))
 // endpoint tipo post o nome do endpoint é livre um para cada membro
 // adição / subtração / divisão / multiplicação
 // Bart   /   Bruno   / Flávia  / Julia 
-// bora nessa ordem?  
+// bora nessa ordem?  (ver no readme.)
 
+server.get('/',(req:Request,res:Response)=>{
+  try {
+    res.send("Wellcome! four operations online.")
+  } catch (error) {
+    
+  }
+})
 
 
