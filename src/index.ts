@@ -16,4 +16,4 @@ server.listen(3003, () => console.log("server on in port ", PORT));
 // Bart   /   Bruno   / Flávia  / Julia
 // bora nessa ordem?
 
-server.post("/acconts", creatAddition);
+server.post("/addition", creatAddition);
