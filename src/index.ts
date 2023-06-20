@@ -5,9 +5,13 @@
 
 import express, {Request, Response} from 'express'
 import cors from 'cors'
+
+
+import { exampleOperations } from './exampleOperation'
 import { TDivision } from './types'
 import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from './endpoints/postSubtraction';
+
 const PORT = 3003
 //main
 
@@ -44,7 +48,6 @@ server.post('/division', (req: Request, res: Response)=>{
             }
             res.status(400);
             throw new Error('The divider must be different from zero.')
-
         }else{
             res.status(400);
             throw new Error('The divider and the dividend must be numbers.')
@@ -72,5 +75,6 @@ server.get('/',(req:Request,res:Response)=>{
  }
 })
 
+server.post('/exampleone',exampleOperations)
 server.post("/addition", creatAddition);
 server.post("/subtraction", postSubtraction);
