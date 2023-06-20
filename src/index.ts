@@ -59,22 +59,16 @@ server.post('/division', (req: Request, res: Response)=>{
     
 })
 
-// vamos trabalhar as 4 operações básicas de matemática coisa simples
-// endpoint tipo post o nome do endpoint é livre um para cada membro
-// adição / subtração / divisão / multiplicação
-// criei-adicao-BrunoMoura
-// Bart   /   Bruno   / Flávia  / Julia
-// bora nessa ordem?
-//
-// Bart   /   Bruno   / Flávia  / Julia 
-// bora nessa ordem?  (ver no readme.)
-
 server.get('/',(req:Request,res:Response)=>{
   try {
     res.send("Wellcome! four operations online.")
   } catch (error) {
-    
-  }
+    if(error instanceof Error){
+      res.send(error.message)
+    }else{
+     res.send('Known error.')
+   }
+ }
 })
 
 
