@@ -7,6 +7,7 @@ import express, {Request, Response} from 'express'
 import cors from 'cors'
 import { TDivision } from './types'
 import { creatAddition } from "./endpoints/createAddition";
+import { postSubtraction } from './endpoints/postSubtraction';
 const PORT = 3003
 //main
 
@@ -71,5 +72,5 @@ server.get('/',(req:Request,res:Response)=>{
  }
 })
 
-
 server.post("/addition", creatAddition);
+server.post("/subtraction", postSubtraction);
