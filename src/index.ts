@@ -1,10 +1,9 @@
-import express, {Request, Response} from 'express'
+import express from 'express'
 import cors from 'cors'
-import { TSubtraction } from './types'
 import { postSubtraction } from './endpoints/postSubtraction'
 const PORT = 3003
 
-const server =express()
+const server = express()
 
 server.use(express.json())
 server.use(cors())
