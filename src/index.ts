@@ -1,5 +1,8 @@
 import express, {Request, Response} from 'express'
 import cors from 'cors'
+
+import { exampleOperations } from './exampleOperation'
+
 const PORT = 3003
 
 const server =express()
@@ -15,5 +18,6 @@ server.listen(3003,()=>console.log("server on in port ", PORT))
 // Bart   /   Bruno   / Flávia  / Julia 
 // bora nessa ordem?  
 
+server.post('/exampleone',exampleOperations)
 
 
