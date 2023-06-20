@@ -32,7 +32,7 @@ server.post('/division', (req: Request, res: Response)=>{
         if(typeof(dividend)==="number" && typeof(divider)==='number'){
             if(divider!==0){
                 const result = dividend/divider
-                res.status(400).send(`${dividend}/${divider} = ${result}`)
+                res.status(200).send(`${dividend}/${divider} = ${result}`)
             }
             res.status(400);
             throw new Error('The divider must be different from zero.')
