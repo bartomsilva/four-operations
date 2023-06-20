@@ -1,4 +1,4 @@
-## não faz fork ( clona o repositório )
+## faz fork ou clona o repositório
 
 ### Four-Operations
 base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um projeto das 4 operações basicas de matemática.
@@ -11,6 +11,7 @@ base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um proj
 - [ ] divisão: Julia Borges
 - [ ] multiplicação: Regiane
 - [ ] Boas Vindas: Bart
+- [ ] Área do Cículo: Jair
 
 <p>OBS: receber dos valores e fazer as devidas validações.</p>
 
