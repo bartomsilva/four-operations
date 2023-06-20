@@ -1,4 +1,4 @@
-## não faz fork ( clona o repositório )
+## faz fork ou clona o repositório
 
 ### Four-Operations
 base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um projeto das 4 operações basicas de matemática.
