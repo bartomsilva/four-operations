@@ -1,26 +1,67 @@
-//criei-adicao-BrunoMoura
-// import express, { Request, Response } from "express";
-// import cors from "cors";
-// const PORT = 3003;
+import express, { Request, Response } from "express";
+import cors from "cors";
 
-import express, {Request, Response} from 'express'
-import cors from 'cors'
-
-
+import { TMultiplication } from "./types";
 import { exampleOperations } from './exampleOperation'
 import { TDivision } from './types'
 import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from './endpoints/postSubtraction';
 
-const PORT = 3003
-//main
-
+const PORT = 3003;
 const server = express();
 
 server.use(express.json());
 server.use(cors());
 
 server.listen(3003, () => console.log("server on in port ", PORT));
+
+server.get('/',(req:Request,res:Response)=>{
+  try {
+    res.send("Wellcome! four operations online.")
+  } catch (error) {
+    if(error instanceof Error){
+      res.send(error.message)
+    }else{
+     res.send('Known error.')
+   }
+ }
+})
+
+server.post("/addition", creatAddition);
+server.post("/subtraction", postSubtraction);
+
+server.post("/multiplication", (req: Request, res: Response) => {
+  try {
+    const { multiplying, multiplier } = req.body;
+
+    if (multiplying === undefined || multiplier === undefined) {
+      res.statusCode = 400;
+      throw new Error(`Invalid data, please check.`);
+    }
+    if (typeof multiplying !== "number" || typeof multiplier !== "number") {
+      res.statusCode = 400;
+      throw new Error(`Invalid values, please enter numbers!`);
+    }
+
+    const resultMultiplication: TMultiplication = {
+      multiplying,
+      multiplier,
+      result: multiplying * multiplier,
+    };
+
+    res
+      .status(200)
+      .send(
+        `The multiplication of numbers ${multiplying} and ${multiplier} is ${resultMultiplication.result}.`
+      );
+  } catch (error) {
+    if (error instanceof Error) {
+      res.send(error.message);
+    } else {
+      res.status(500).send(`Internal server error.`);
+    }
+  }
+});
 
 server.post('/division', (req: Request, res: Response)=>{
         try {
@@ -60,21 +101,9 @@ server.post('/division', (req: Request, res: Response)=>{
             res.send('Known error.')
         }
     }
-    
 })
-
-server.get('/',(req:Request,res:Response)=>{
-  try {
-    res.send("Wellcome! four operations online.")
-  } catch (error) {
-    if(error instanceof Error){
-      res.send(error.message)
-    }else{
-     res.send('Known error.')
-   }
- }
-})
-
 server.post('/exampleone',exampleOperations)
-server.post("/addition", creatAddition);
-server.post("/subtraction", postSubtraction);
+
+
+
+
