@@ -6,8 +6,10 @@ base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma AP
 ### endpoints POST:
 ``` bash
 
+*** padrão para os nomes  ***
+
 - addition  ( adição )
-- subtração ( subtraction )
+- subtraction ( subtração  )
 - multiplication ( multiplicação )
 - division ( division )
 - circleAarea ( área do círculo )
