@@ -1,4 +1,4 @@
-### Four-Operations
+## Four-Operations
 
 base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma API matemática.
 <p>* vamos trabalhar as 4 operações básicas de matemática</p>
@@ -25,7 +25,7 @@ base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma AP
 - valueC ( caso do triângulo ou outro se necessário )
 ```
 
-### exemplo de de recebimento
+### exemplo de recebimento
 ```js
  
  const { valorA, valorB, valorC } = req.body
