@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 
+import { exampleOperations } from './endpoints/example'
 import { TMultiplication } from "./types";
-import { exampleOperations } from './exampleOperation'
 import { TDivision } from './types'
 import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from './endpoints/postSubtraction';
@@ -102,8 +102,6 @@ server.post('/division', (req: Request, res: Response)=>{
         }
     }
 })
-server.post('/exampleone',exampleOperations)
-
-
+server.post('/example',exampleOperations)
 
 
