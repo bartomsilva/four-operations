@@ -1,27 +1,77 @@
-## faz fork ou clona o repositório
-
 ### Four-Operations
-base experimental, trabalho em grupo ( nodejs), trata-se inicialmente de um projeto das 4 operações basicas de matemática.
 
-<p>* vamos trabalhar as 4 operações básicas de matemática coisa simples</p>
-<p>* endpoint tipo POST o nome do endpoint é livre um para cada membro.</p>
+base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma API matemática.
+<p>* vamos trabalhar as 4 operações básicas de matemática</p>
 
-- [ ] adição: Bruno
-- [ ] subtração: Flavia
-- [ ] divisão: Julia Borges
-- [ ] multiplicação: Regiane
-- [ ] Boas Vindas: Bart
+### endpoints POST:
+``` bash
+
+- addition  ( adição )
+- subtração ( subtraction )
+- multiplication ( multiplicação )
+- division ( division )
+- circleAarea ( área do círculo )
+- squareArea ( área do quadrado )
+- triangleArea ( área do trinângulo )
+- rectangleArea( área do retângulo )
+
+  obs: todos endpoints devem ficar dentro da pasta endpoints
+
+```
+### padronizar as entradas:
+```bash
+- valueA
+- valueB
+- valueC ( caso do triângulo ou outro se necessário )
+```
+
+### exemplo de de recebimento
+```js
+ 
+ const { valorA, valorB, valorC } = req.body
+
+ // todos os valores devem ser testandos quanto ao envio, assim como o type.
+ // todoas mensagens de advertência devem ser em inglês
+ 
+```
+### Exemplo de retorno:
+```js
+
+ res.status(200).json( valorA * valorB )
+ 
+```
+
+### Responsabilidades:
+
+- [x] adição: Bruno
+- [x] subtração: Flavia
+- [x] divisão: Julia Borges
+- [x] multiplicação: Regiane
+- [x] Boas Vindas: Bart
 - [ ] Área do Círculo: Jair
 
-<p>OBS: receber dos valores e fazer as devidas validações.</p>
+## Fluxo do git ( manutenção ) 
 
 ```bash
-cada um crie uma branch com seu nome. "criei a minha branch como: bart"
-cada um faz um endpoint, quando estiver pronto faz o push e cria um pull request
-mas não vamos mergiar, bora marcar uma call e debater como ficou o repositorio
-e tentar resolver.
-```
+
+ git checkout main
  
+ git pull
+ // porque fazer um git pull antes de dar inicio a manutenção? isso garante que vai pegar a versão mais
+ // recente do código naquele momento.
+ 
+ git checkout -( nome da branch ) ou git ckeckout -b ( nome da branch )
+ 
+ git add .
+ 
+ git commit -b "<ação> descrição"
+ 
+ git push origin <nome da branch>
+
+ pull request / codereview / resolver os conflitos / merge.
+ 
+```
+
 ## próximos passos 
 ### add mais colaboradores
 ### criar mais funções: 
@@ -31,3 +81,4 @@ e tentar resolver.
   - [ ] área do triangulo
   - [ ] área do retangulo
 
+### Sugestões são bem vindas!
