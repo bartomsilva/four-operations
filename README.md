@@ -30,8 +30,8 @@ base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma AP
  
  const { valorA, valorB, valorC } = req.body
 
- // todos os valores devem ser testandos quanto ao envio, assim como o type.
- // todoas mensagens de advertência devem ser em inglês
+ // todos os valores devem ser testados quanto ao envio, assim como o type.
+ // todas mensagens de advertência devem ser em inglês
  
 ```
 ### Exemplo de retorno:
