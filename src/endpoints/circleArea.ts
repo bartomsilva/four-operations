@@ -20,9 +20,7 @@ export const circleArea = (req: Request, res: Response) => {
     res
       .status(200)
       .send(
-        `The circle's area with a radius equal to ${radius} is ${circleArea.toFixed(
-          3
-        )}.`
+        circleArea.toFixed(3)
       );
   } catch (error) {
     if (error instanceof Error) {
