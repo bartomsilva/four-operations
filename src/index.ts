@@ -1,11 +1,11 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 
-import { exampleOperations } from './endpoints/example'
-import { TMultiplication } from "./types";
-import { TDivision } from './types'
+import { exampleOperations } from "./endpoints/example";
+import { TCircleArea, TMultiplication } from "./types";
+import { TDivision } from "./types";
 import { creatAddition } from "./endpoints/createAddition";
-import { postSubtraction } from './endpoints/postSubtraction';
+import { postSubtraction } from "./endpoints/postSubtraction";
 
 const PORT = 3003;
 const server = express();
@@ -15,17 +15,17 @@ server.use(cors());
 
 server.listen(3003, () => console.log("server on in port ", PORT));
 
-server.get('/',(req:Request,res:Response)=>{
+server.get("/", (req: Request, res: Response) => {
   try {
-    res.send("Wellcome! four operations online.")
+    res.send("Wellcome! four operations online.");
   } catch (error) {
-    if(error instanceof Error){
-      res.send(error.message)
-    }else{
-     res.send('Known error.')
-   }
- }
-})
+    if (error instanceof Error) {
+      res.send(error.message);
+    } else {
+      res.send("Known error.");
+    }
+  }
+});
 
 server.post("/addition", creatAddition);
 server.post("/subtraction", postSubtraction);
@@ -63,45 +63,71 @@ server.post("/multiplication", (req: Request, res: Response) => {
   }
 });
 
-server.post('/division', (req: Request, res: Response)=>{
-        try {
-        const {dividend, divider} = req.body
+server.post("/division", (req: Request, res: Response) => {
+  try {
+    const { dividend, divider } = req.body;
 
-        const newDivision: TDivision={
-            dividend,
-            divider
-        }
+    const newDivision: TDivision = {
+      dividend,
+      divider,
+    };
 
-        if(dividend===undefined){
-            res.status(400);
-            throw new Error('The operation must have one dividend and one divider. Try again.')
-        }
-
-        if(divider===undefined || divider===0){
-            res.status(400);
-            throw new Error('The divider cannot be zero. Try again.')
-        }
-
-        if(typeof(dividend)==="number" && typeof(divider)==='number'){
-            if(divider!==0){
-                const result = dividend/divider
-                res.status(200).send(`${dividend}/${divider} = ${result}`)
-            }
-            res.status(400);
-            throw new Error('The divider must be different from zero.')
-        }else{
-            res.status(400);
-            throw new Error('The divider and the dividend must be numbers.')
-        }
-        
-    } catch (error) {
-        if(error instanceof Error){
-            res.send(error.message)
-        }else{
-            res.send('Known error.')
-        }
+    if (dividend === undefined) {
+      res.status(400);
+      throw new Error(
+        "The operation must have one dividend and one divider. Try again."
+      );
     }
-})
-server.post('/example',exampleOperations)
 
+    if (divider === undefined || divider === 0) {
+      res.status(400);
+      throw new Error("The divider cannot be zero. Try again.");
+    }
 
+    if (typeof dividend === "number" && typeof divider === "number") {
+      if (divider !== 0) {
+        const result = dividend / divider;
+        res.status(200).send(`${dividend}/${divider} = ${result}`);
+      }
+      res.status(400);
+      throw new Error("The divider must be different from zero.");
+    } else {
+      res.status(400);
+      throw new Error("The divider and the dividend must be numbers.");
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      res.send(error.message);
+    } else {
+      res.send("Known error.");
+    }
+  }
+});
+server.post("/example", exampleOperations);
+
+server.post("/circleArea", (req: Request, res: Response) => {
+  try {
+    const { radius }: TCircleArea = req.body;
+    if( radius === undefined){
+      res.status(400);
+      throw new Error("Invalid data. Try again.");
+    }
+    if( typeof(radius)!== "number"){
+      res.status(400);
+      throw new Error("The radius must be a number. Try again.");
+    }
+    if(radius < 0){
+      res.status(400);
+      throw new Error("The radius must be a positive number. Try again.");
+    }
+    const circleArea = Math.PI * (radius**2);
+    res.status(200).send(`The circle's area with a radius equal to ${radius} is ${circleArea.toFixed(3)}.`)
+
+  } catch (error) {
+    if (error instanceof Error) {
+      res.send(error.message);
+    } else {
+      res.status(500).send("Internal server error.");
+    }
+  }
+});
