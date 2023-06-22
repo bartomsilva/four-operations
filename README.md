@@ -1,7 +1,7 @@
 ## Four-Operations
 
 base experimental, trabalho em grupo (nodejs com typescript), trata-se de uma API matemática.
-<p>* vamos trabalhar as 4 operações básicas de matemática</p>
+<p>* vamos trabalhar inicialmente as 4 operações básicas de matemática.</p>
 
 ### endpoints POST:
 ``` bash
