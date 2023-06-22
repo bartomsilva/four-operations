@@ -2,10 +2,11 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 
 import { exampleOperations } from "./endpoints/example";
-import { TCircleArea, TMultiplication } from "./types";
+import { TMultiplication } from "./types";
 import { TDivision } from "./types";
 import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from "./endpoints/postSubtraction";
+import { circleArea } from "./endpoints/circleArea";
 
 const PORT = 3003;
 const server = express();
@@ -105,29 +106,4 @@ server.post("/division", (req: Request, res: Response) => {
 });
 server.post("/example", exampleOperations);
 
-server.post("/circleArea", (req: Request, res: Response) => {
-  try {
-    const { radius }: TCircleArea = req.body;
-    if( radius === undefined){
-      res.status(400);
-      throw new Error("Invalid data. Try again.");
-    }
-    if( typeof(radius)!== "number"){
-      res.status(400);
-      throw new Error("The radius must be a number. Try again.");
-    }
-    if(radius < 0){
-      res.status(400);
-      throw new Error("The radius must be a positive number. Try again.");
-    }
-    const circleArea = Math.PI * (radius**2);
-    res.status(200).send(`The circle's area with a radius equal to ${radius} is ${circleArea.toFixed(3)}.`)
-
-  } catch (error) {
-    if (error instanceof Error) {
-      res.send(error.message);
-    } else {
-      res.status(500).send("Internal server error.");
-    }
-  }
-});
+server.post("/circleArea" , circleArea)
