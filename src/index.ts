@@ -8,6 +8,7 @@ import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from "./endpoints/postSubtraction";
 import { circleArea } from "./endpoints/circleArea";
 import { squareArea } from "./endpoints/squareArea";
+import { handlerError } from "./endpoints/catch";
 
 const PORT = 3003;
 const server = express();
@@ -21,11 +22,7 @@ server.get("/", (req: Request, res: Response) => {
   try {
     res.send("Wellcome! four operations online.");
   } catch (error) {
-    if (error instanceof Error) {
-      res.send(error.message);
-    } else {
-      res.send("Known error.");
-    }
+    handlerError(res, error);
   }
 });
 
@@ -103,7 +100,7 @@ server.post("/division", (req: Request, res: Response) => {
     } else {
       res.send("Known error.");
     }
-  }
+  }  
 });
 server.post("/example", exampleOperations);
 

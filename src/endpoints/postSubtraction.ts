@@ -16,6 +16,7 @@ export const postSubtraction = (req: Request, res: Response) => {
         }
         const result = minuendo - subtraendo
         res.status(200).send(`O resultado da subtração: ${minuendo} - ${subtraendo} = ${result}`)
+        
     } catch (error) {
         if (res.statusCode === 200) {
             res.status(500)
