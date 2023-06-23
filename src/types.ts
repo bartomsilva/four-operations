@@ -10,3 +10,6 @@ export type TDivision = {
 export type TCircleArea = {
   radius: number;
 };
+export type TSquareArea = {
+  side: number;
+}

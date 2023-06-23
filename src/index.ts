@@ -7,6 +7,7 @@ import { TDivision } from "./types";
 import { creatAddition } from "./endpoints/createAddition";
 import { postSubtraction } from "./endpoints/postSubtraction";
 import { circleArea } from "./endpoints/circleArea";
+import { squareArea } from "./endpoints/squareArea";
 
 const PORT = 3003;
 const server = express();
@@ -107,3 +108,5 @@ server.post("/division", (req: Request, res: Response) => {
 server.post("/example", exampleOperations);
 
 server.post("/circleArea" , circleArea)
+
+server.post("/squareArea" , squareArea)
