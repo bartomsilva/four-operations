@@ -1,32 +1,26 @@
 import { Request, Response } from "express";
+import { z } from "zod";
+import { handlerError } from "./handlerError";
 import { TCircleArea } from "../types";
 
-export const circleArea = (req: Request, res: Response) => {
-  try {
-    const { radius }: TCircleArea = req.body;
-    if (radius === undefined) {
-      res.status(400);
-      throw new Error("Invalid data. Try again.");
+export const circleArea = (req: Request<{}, {}, TCircleArea>, res: Response) => {
+    try {
+        const schema = z.object({
+            valueA: z.number({
+                required_error: "'valueA' is required.",
+                invalid_type_error: "'valueA' must be of numeric type.",
+            }).min(1, "'valueA' must be higher then zero"),
+        });
+
+        schema.parse(req.body);
+
+        const { valueA } = req.body;
+
+        const result = (Math.PI * valueA ** 2).toFixed(2);
+
+        res.status(200).json(+result);
+
+    } catch (error) {
+        handlerError(res, error);
     }
-    if (typeof radius !== "number") {
-      res.status(400);
-      throw new Error("The radius must be a number. Try again.");
-    }
-    if (radius < 0) {
-      res.status(400);
-      throw new Error("The radius must be a positive number. Try again.");
-    }
-    const circleArea = Math.PI * radius ** 2;
-    res
-      .status(200)
-      .send(
-        circleArea.toFixed(3)
-      );
-  } catch (error) {
-    if (error instanceof Error) {
-      res.send(error.message);
-    } else {
-      res.status(500).send("Internal server error.");
-    }
-  }
-};
+}

@@ -1,15 +1,13 @@
-export type TMultiplication ={
-    multiplying: number,
-    multiplier: number,
-    result: number
+export type TOperation ={
+  valueA: number;
+  valueB: number;
+  operator: string
 };
-export type TDivision = {
-  dividend: number;
-  divider: number;
-};
+
 export type TCircleArea = {
-  radius: number;
+  valueA: number;
 };
+
 export type TSquareArea = {
-  side: number;
+  valueA: number;
 }

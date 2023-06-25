@@ -1,28 +1,26 @@
 import { Request, Response } from "express";
 import { TSquareArea } from "../types";
+import { z } from "zod";
+import { handlerError } from "./handlerError";
 
-export const squareArea = (req: Request, res: Response) => {
-  try {
-    const { side }: TSquareArea = req.body;
-    if (side === undefined) {
-      res.status(400);
-      throw new Error("Invalid data. Try again.");
+export const squareArea = (req: Request<{}, {}, TSquareArea>, res: Response) => {
+    try {
+        const schema = z.object({
+            valueA: z.number({
+                required_error: "'valueA' is required.",
+                invalid_type_error: "'valueA' must be of numeric type.",
+            }).min(1, "'valueA' must be higher then zero"),
+        });
+
+        schema.parse(req.body);
+
+        const { valueA } = req.body;
+
+        const result = (valueA **2).toFixed(2);
+
+        res.status(200).json(+result);
+        
+    } catch (error) {
+        handlerError(res, error);
     }
-    if (typeof side !== "number") {
-      res.status(422);
-      throw new Error("Invalid type. The side must be a number.");
-    }
-    if (side <= 0) {
-      res.status(400);
-      throw new Error("The side must be greater than 0.");
-    }
-    const squareArea = side * side;
-    res.status(200).send(squareArea.toFixed(2));
-  } catch (error) {
-    if (error instanceof Error) {
-      res.send(error.message);
-    } else {
-      res.status(500).send("Unexpected error.");
-    }
-  }
-};
+}
